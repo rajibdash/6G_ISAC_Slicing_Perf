@@ -67,7 +67,7 @@ Where:
 ```
 
 ### 3.2 Waveform Comparison Matrix
-Choosing the right physical layer waveform is critical for managing high-mobility scenarios (e.g., connected autonomous vehicles, drones) without causing severe cross-slice degradation:
+Choosing the right physical layer (L1) waveform is critical for managing high-mobility scenarios (e.g., connected autonomous vehicles, drones) without causing severe cross-slice degradation:
 
 | Waveform Type | Communication Efficiency | Sensing Resolution | Doppler/Mobility Resilience | Algorithmic Complexity | Implementation & Processing Complexity |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -75,10 +75,12 @@ Choosing the right physical layer waveform is critical for managing high-mobilit
 | **DFT-s-OFDM** | High spectral efficiency, native 5G compatibility. | Moderate; prone to range-Doppler coupling ambiguities. | Low; suffers from Inter-Carrier Interference (ICI) under high mobility. | Low | Low: Utilizes standard low-complexity FFT/IFFT processing pipelines. |
 | **OTFS (Delay-Doppler)** | High; converts time-varying channels into time-invariant structures. | Exceptionally high range and velocity resolution. | Full resilience; cleanly maps directly to physical coordinate geometries. | High (Requires Symplectic Finite Fourier Transforms) | High: Requires complex Symplectic Finite Fourier Transforms (SFFT) and advanced equalizers. |
 
+
+
 ---
 
 ## 4. End-to-End Resource Simulation Script (draft) - WIP
-The following complete, executable Python script simulates the power-sharing and performance trade-offs between the two slices, 
+The following draft complete, executable Python script simulates the power sharing and performance trade-offs between the two slices, 
 incorporating cross-slice alignment bonuses (SAC alignment bonus and CAS fusion gain).
 
 ```python
@@ -133,5 +135,8 @@ if __name__ == "__main__":
 
 ## References
 1. https://arxiv.org/html/2610.03879v1
+
+
+__NOTE__: UL/DL CA + ISAC slicing needs to be defined later. 
 
 __*Disclaimer*__: Above informations needs to be refined, as some informations from AI responses may include mistakes.
