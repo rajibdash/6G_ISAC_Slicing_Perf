@@ -1,4 +1,4 @@
-# 6G ISAC Slicing Performance analysis (?FR2)
+# 6G ISAC Slicing Performance analysis (FR2/mmWave)
 >  Performance analysis of ISAC Slicing with Sensing-Assisted Communication and Communication-Assisted Sensing
 
 
@@ -135,6 +135,7 @@ if __name__ == "__main__":
 
 ## References
 1. https://arxiv.org/html/2610.03879v1
+2. https://github.com/DanteCampos/2026-ISAC-DJ
 
 
 __NOTE__: UL/DL CA + ISAC slicing needs to be defined later. 
