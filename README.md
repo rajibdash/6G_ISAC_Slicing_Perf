@@ -44,6 +44,8 @@ In the CAS paradigm, the **communication slice serves as the data transport and 
 * **Mechanics:** High-resolution sensing typically requires bi-static or multi-static configurations, where multiple distributed base stations and UEs coordinate to sense a target.
 * **Slicing Synergies:** The communication slice provides the ultra-low latency, high-bandwidth links required for these distributed sensors to exchange raw RF/IQ data, coordinate flash synchronization, and execute sensor fusion algorithms. Without the communication slice routing this data, the sensing slice would be limited to low-resolution, short-range monostatic configurations.
 
+__NOTE__: Ultimately, successful 6G ISAC slicing relies on Dynamic Resource Allocation frameworks (often managed via AI/ML at the orchestration layer). Instead of treating spectrum as a fixed pie split between two competing services, the network dynamically tilts resources based on environmental demand allocating wider bands to sensing when target tracking is **critical** to prevent communication dropouts, and shifting it back to data transmission once a stable, sensing-assisted connection is locked in.
+
 ---
 
 ## 3. Mathematical Optimization and Waveform Architecture
