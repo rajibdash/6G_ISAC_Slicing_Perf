@@ -138,6 +138,6 @@ if __name__ == "__main__":
 2. https://github.com/DanteCampos/2026-ISAC-DJ
 
 
-__NOTE__: UL/DL CA + ISAC slicing needs to be defined later. 
+__NOTE__: UL/DL CA + ISAC slicing needs to be defined later. Because the CA combines multiple component carriers (CCs) across different frequency bands (e.g., FR1, mmWave, or Sub-THz), performance measurement must account for cross-slice resource trade-offs and the mutual dependencies of **Sensing-Assisted Communication (SAC)** and **Communication-Assisted Sensing (CAS)**.
 
-__*Disclaimer*__: Above informations needs to be refined, as some informations from AI responses may include mistakes.
+__*Disclaimer*__: Above informations needs to be refined as long as understanding is matured...
