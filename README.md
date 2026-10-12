@@ -136,8 +136,9 @@ if __name__ == "__main__":
 ## References
 1. https://arxiv.org/html/2610.03879v1
 2. https://github.com/DanteCampos/2026-ISAC-DJ
+3. https://research.samsung.com/blog/Integrated-Sensing-and-Communication-ISAC-New-monetization-opportunities-for-5G-and-beyond
 
-
+   
 __NOTE__: UL/DL CA + ISAC slicing needs to be defined later. Because the CA combines multiple component carriers (CCs) across different frequency bands (e.g., FR1, mmWave, or Sub-THz), performance measurement must account for cross-slice resource trade-offs and the mutual dependencies of **Sensing-Assisted Communication (SAC)** and **Communication-Assisted Sensing (CAS)** 
 and the evaluation of an ISAC slice with CA performance cannot be done using isolated metrics. Maybe one thought CA anomalies can degrade ISAC slice performance.
 
