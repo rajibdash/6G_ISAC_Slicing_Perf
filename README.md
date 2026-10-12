@@ -34,6 +34,51 @@ Instead of traditional, hard-partitioned resource allocation, 6G ISAC slicing op
 
 ```
 
+## Overview of ISAC trigger
+To get an overview of DCI Trigger ISAC. need to verify with 38.212 spec.
+
+```
+[ Step 1: RRC Pre-Configuration ]
+  gNB defines SRS-ResourceSet for Sensing (Comb type, Symbol mapping 3, 7, 11)
+  Mapped to "Aperiodic Trigger State 01" via Radio Resource Control (RRC)
+              │
+              ▼
+[ Step 2: PDCCH Dynamic Triggering ]
+  gNB transmits DCI Format 0_1 on CC0
+  ├── CIF: Points to CC1
+  ├── TDRA: Allocates PUSCH for symbols 0-2, 4-6, 8-10, 12-13
+  └── SRS Request: Sets bits to "01" (Fires the sensing burst)
+              │
+              ▼
+[ Step 3: Slot Execution (The Grid) ]
+  UE transmits standard data on scheduled PUSCH symbols.
+  At symbols 3, 7, and 11, the UE instantly switches to high-power 
+  wideband ISAC waveform transmission across CC1 for target illumination.
+
+```
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        DCI FORMAT 0_1 / 0_2                            │
+└───────────┬───────────────────┬────────────────────────┬───────────────┘
+            │                   │                        │
+            ▼                   ▼                        ▼
+     [ CIF Field ]        [ TDRA Field ]          [ SRS/ISAC Trigger ]
+     Maps to CC1          Maps PUSCH Data         Maps Sensing Waveform
+   (Wideband Carrier)   (Symbols 0-2, 4-6...)     (Symbols 3, 7, 11)
+            │                   │                        │
+            └───────────────────┼────────────────────────┘
+                                ▼
+         ┌──────────────────────────────────────────────┐
+         │ COMBINED ISAC SLOT RESOURCE GRID (TS 38.211) │
+         │   Symbol 0-2  : PUSCH Data Block             │
+         │   Symbol 3    : ISAC Waveform Burst          │
+         │   Symbol 4-6  : PUSCH Data Block             │
+         │   Symbol 7    : ISAC Waveform Burst          │
+         │   Symbol 11   : ISAC Waveform Burst          │
+         └──────────────────────────────────────────────┘
+```
+
 ### 2.1 Sensing-Assisted Communication (SAC)
 In the SAC paradigm, the **sensing slice gathers real-time physical environmental context to optimize data links**.
 * **Mechanics:** The network uses radar-like RF reflections to track physical target positions, user equipment (UE) movements, and environmental obstacles in real time.
